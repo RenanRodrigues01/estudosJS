@@ -8,13 +8,18 @@ const notas = [10, 8, 7.5, 5.5];
 const listaDuasDimensoes = [alunos, notas];
 
 function exibeAlunoMedia (aluno) {
+
 //includes() verifica se o elemento passada como parametro está no array em questão
     if(listaDuasDimensoes[0].includes(aluno)){
-// indexOf() retorna o inidce do elemento passado como parametro
-        const indice = listaDuasDimensoes[0].indexOf(aluno)
-        const media = listaDuasDimensoes[1][indice]
 
-        console.log(`${aluno} tem a media ${media}`);
+// desistruturação de array alunos representa o indice 0 e notas indice 1 do meu array listaDuasDimensoes
+        const [alunos, notas] = listaDuasDimensoes
+        
+// indexOf() retorna o inidce do elemento passado como parametro
+        const indice = alunos.indexOf(aluno)
+        const mediaDoAluno = notas[indice]
+
+        console.log(`${aluno} tem a media ${mediaDoAluno}`);
 
     } else{
         console.log("aluno não encontrado");
