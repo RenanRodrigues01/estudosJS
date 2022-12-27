@@ -9,7 +9,8 @@ const media = (notas[0] + notas[1] + notas[2] + notas[3]) / notas.length;
 
 console.log(media);
 console.log(notas);*/
-//calculando média com o uso do for of
+/*--------------------------------------------------------------------------------------------------------------------*/
+/*calculando média com o uso do for of
 let somaDasNotas = 0;
 
 for (let nota of notas){
@@ -18,4 +19,15 @@ for (let nota of notas){
 
 const media = somaDasNotas / notas.length;
 
-console.log(`A media final é ${media}`)
+console.log(`A media final é ${media}`) */
+
+let somaDasNotas = 0;
+
+notas.forEach((nota) =>{
+    somaDasNotas += nota
+});
+
+const media = somaDasNotas / notas.length;
+
+console.log(`A media final é ${media}`);
+
