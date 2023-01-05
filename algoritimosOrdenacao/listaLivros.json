@@ -1,0 +1,26 @@
+[
+    {
+        "titulo": "javaScript",
+        "valor": 25
+    },
+    {
+        "titulo": "PHP",
+        "valor": 15
+    },
+    {
+        "titulo": "java",
+        "valor": 30
+    },
+    {
+        "titulo": "Elixir",
+        "valor": 50
+    },
+    {
+        "titulo": "GO",
+        "valor": 45
+    },
+    {
+        "titulo": "Python",
+        "valor": 20
+    }
+]
