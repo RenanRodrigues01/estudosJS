@@ -1,25 +1,5 @@
 // levando em consideração que é uma lista de livros com seus preços, e na disposição estão todos desordenados
-const livros = require("./listaLivros.json");
-
-/* função criada um metodo de ordenação de array do proprio JS, visto em algumas aulas passadas
-function ordenaValor(lista, chave){
-    const listaOrdenada = lista.sort( (a, b) => {
-// metodo percorre o o array comparando os elementos e ordenando do menor para o maior 
-        if(a[chave] < b[chave] ){
-            return -1
-        }
-        if(a[chave] > b[chave]){
-            return 1
-        }
-        return 0
-    });
-    return listaOrdenada;
-}
-
-const metodoSort = ordenaValor(livros, "valor");
-console.log(metodoSort); */
-
-
+//const livros = require("./listaLivros.json");
 
 function encontraMenorValor (lista, posicao){
     let livroMaisBarato = posicao;
