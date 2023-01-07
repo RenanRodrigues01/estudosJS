@@ -1,4 +1,3 @@
-// levando em consideração que é uma lista de livros com seus preços, e na disposição estão todos desordenados
 //const livros = require("./listaLivros.json");
 
 function encontraMenorValor (lista, posicao){
