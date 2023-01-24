@@ -1,16 +1,17 @@
 import { Negociacao } from "./negociacao.js";
 
 // sintaxe opicional para declaração de tipo
-// private negociacoes: Negociacao[] = [];
 export class Negociacoes {
-    private negociacoes: Array<Negociacao> = [];
+    //private negociacoes:   = [];
+    private negociacoes: Negociacao[] = [];
 
     adiciona(negociacao: Negociacao) {
         this.negociacoes.push(negociacao);
     }
+
 // sintaxe alternativa para declaração de apenas leitura
-//  listar(): readonly negociacao[]
-    listar(): ReadonlyArray<Negociacao> {
+// listar(): ReadonlyArray<Negociacao>
+    listar(): readonly Negociacao[] {
         return this.negociacoes;
     }
 }
