@@ -16,7 +16,7 @@ export class negocacoesView extends View {
                 ${model.listar().map((negociacao) => {
             return `
                         <tr>
-                            <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
+                            <td>${this.dataSet(negociacao.data)}</td>
                             <td>${negociacao._quantidade}</td>
                             <td>${negociacao._valor}</td>
                         </tr>
@@ -25,5 +25,10 @@ export class negocacoesView extends View {
             </tbody>
         </table>
         `;
+    }
+    /* criando um metodo privado, para deixar a formatação de data externa, e pra que o desenvolvedor não tenha acesso a esse metodo
+    ao instanciar um new negociacoesView, o objetvo é que tenha caesso apenas ao metodo update que vai atualizar as informaçoes */
+    dataSet(data) {
+        return new Intl.DateTimeFormat().format(data);
     }
 }
