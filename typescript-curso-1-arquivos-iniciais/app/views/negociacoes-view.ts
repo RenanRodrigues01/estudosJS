@@ -1,9 +1,8 @@
 import { Negociacoes } from "../models/negociacoes.js";
 import { View } from "./view.js";
-
+//Ao herdar os metodos de uma classe com o tipo generics, assim que extendemos a classe precisamos declarar qual tipo sera usado
 export class negocacoesView extends View<Negociacoes> {
     
-
     template(model: Negociacoes) : string {
 
         return `

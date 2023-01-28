@@ -1,3 +1,4 @@
+/*Crinado uma classe usando o tipo generics, para extnder seus metodos as filhas*/
 export class View {
     constructor(seletor) {
         this.elemento = document.querySelector(seletor);

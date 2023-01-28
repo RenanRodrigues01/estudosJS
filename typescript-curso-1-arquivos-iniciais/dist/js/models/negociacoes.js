@@ -1,7 +1,7 @@
 // sintaxe opicional para declaração de tipo
 export class Negociacoes {
     constructor() {
-        //private negociacoes:   = [];
+        //private negociacoes:   = [];/ cria um tipo generico 
         this.negociacoes = [];
     }
     adiciona(negociacao) {

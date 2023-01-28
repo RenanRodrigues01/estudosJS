@@ -2,7 +2,7 @@ import { Negociacao } from "./negociacao.js";
 
 // sintaxe opicional para declaração de tipo
 export class Negociacoes {
-    //private negociacoes:   = [];
+    //private negociacoes:   = [];/ cria um tipo generico 
     private negociacoes: Negociacao[] = [];
 
     adiciona(negociacao: Negociacao) {
