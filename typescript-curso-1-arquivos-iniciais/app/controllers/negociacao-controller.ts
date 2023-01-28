@@ -9,7 +9,7 @@ export class NegociacaoController {
     private inputValor: HTMLInputElement;
     private negociacoes = new Negociacoes();
     private negociacoesView = new negocacoesView("#negociacoesView");
-    private mensagemView = new MensagemView("#mensagemView")
+    private mensagemView = new MensagemView("#mensagemView");
     
 
     constructor () {
@@ -19,27 +19,31 @@ export class NegociacaoController {
         this.negociacoesView.update(this.negociacoes);
     }
 
-    adiciona(): void {
+    public adiciona(): void {
         const negociacao = this.criaNegociacao()
         this.negociacoes.adiciona(negociacao);
-        this.negociacoesView.update(this.negociacoes);
-        this.mensagemView.update("Negociação criada com sucesso")
-        this.limpaForm()
+        this.limpaForm();
+        this.atualizaView()
     }
 
-    criaNegociacao(): Negociacao {
+    private criaNegociacao(): Negociacao {
         const exp: RegExp = /-/g;
         const date = new Date(this.inputData.value.replace(exp, ","));
         const quantidade = parseInt(this.inputQauntidade.value);
         const valor = parseFloat(this.inputValor.value);
 
-        return new Negociacao(date, quantidade, valor) 
+        return new Negociacao(date, quantidade, valor);
     }
 
-    limpaForm(): void {
+    private limpaForm(): void {
         this.inputData.value = '';
         this.inputQauntidade.value = '';
         this.inputValor.value = '';
         this.inputData.focus();
+    }
+
+    private atualizaView(): void {
+        this.negociacoesView.update(this.negociacoes);
+        this.mensagemView.update("Negociação criada com sucesso");
     }
 }

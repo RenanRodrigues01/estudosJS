@@ -6,7 +6,7 @@ pois sem a filha implementar o metodo template, view só iria exibir um erro em 
     protected elemento: HTMLElement;
 
     constructor(seletor: string) {
-        this.elemento = document.querySelector(seletor)
+        this.elemento = document.querySelector(seletor);
     }
 
 /* criando um metodo abstrato, classe não define como o metodo será implementado mas sim a filha,
@@ -15,7 +15,7 @@ sendo assim o metodo torna obrigatorio, e detectavel em tempo de desenvolvimento
 /* tranformando o metodo template em protected, para que só suas filhas tenham acesso ao metodo 
 por padrão os metodos são publicos, então ao instanciar um dos filhos teremos acesso ao metodo*/
 
-    update(model : T) : void {
+    public update(model : T) : void {
         const template = this.template(model);
         this.elemento.innerHTML = template;
     }
