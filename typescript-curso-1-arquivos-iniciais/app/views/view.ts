@@ -11,8 +11,9 @@ pois sem a filha implementar o metodo template, view só iria exibir um erro em 
 
 /* criando um metodo abstrato, classe não define como o metodo será implementado mas sim a filha,
 sendo assim o metodo torna obrigatorio, e detectavel em tempo de desenvolvimento */
-    abstract template(model: T): string;
-
+    protected abstract template(model: T): string;
+/* tranformando o metodo template em protected, para que só suas filhas tenham acesso ao metodo 
+por padrão os metodos são publicos, então ao instanciar um dos filhos teremos acesso ao metodo*/
 
     update(model : T) : void {
         const template = this.template(model);

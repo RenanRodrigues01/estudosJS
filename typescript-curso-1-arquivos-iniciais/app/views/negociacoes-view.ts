@@ -2,8 +2,9 @@ import { Negociacoes } from "../models/negociacoes.js";
 import { View } from "./view.js";
 //Ao herdar os metodos de uma classe com o tipo generics, assim que extendemos a classe precisamos declarar qual tipo sera usado
 export class negocacoesView extends View<Negociacoes> {
-    
-    template(model: Negociacoes) : string {
+/*como classe filha sobre escreve o pai, o metodo torna-se publico, sendo assim ao instanciar a filha o desenvolvedor tera acesso ao metodo*/
+
+    protected template(model: Negociacoes) : string {
 
         return `
         <table class="table table-hover table-bordered">
