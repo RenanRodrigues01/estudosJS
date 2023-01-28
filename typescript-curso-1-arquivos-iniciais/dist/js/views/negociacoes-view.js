@@ -2,7 +2,7 @@ export class negocacoesView {
     constructor(seletor) {
         this.elemento = document.querySelector(seletor);
     }
-    template() {
+    template(lista) {
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -13,12 +13,21 @@ export class negocacoesView {
                 </tr>
             </thead>
             <tbody>
-
+                ${lista.listar().map((negociacao) => {
+            return `
+                        <tr>
+                            <td>?</td>
+                            <td>${negociacao._quantidade}</td>
+                            <td>${negociacao._valor}</td>
+                        </tr>
+                    `;
+        }).join("")}
             </tbody>
         </table>
         `;
     }
-    update() {
-        this.elemento.innerHTML = this.template();
+    update(lista) {
+        const template = this.template(lista);
+        this.elemento.innerHTML = template;
     }
 }
