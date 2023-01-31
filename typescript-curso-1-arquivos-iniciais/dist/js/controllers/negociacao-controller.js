@@ -14,7 +14,8 @@ export class NegociacaoController {
         this.negociacoesView.update(this.negociacoes);
     }
     adiciona() {
-        const negociacao = this.criaNegociacao();
+        // A lógica de conversão foi toda levada para dentro da classe Negociacao, para deixar o código mais legivel
+        const negociacao = Negociacao.criaDe(this.inputData.value, this.inputQauntidade.value, this.inputValor.value);
         if (!this.ehDiaUtil(negociacao.data)) {
             return this.mensagemView.update("Apenas operaçoes em dia útil são validas");
         }

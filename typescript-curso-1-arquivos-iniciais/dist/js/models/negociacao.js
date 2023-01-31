@@ -30,7 +30,9 @@ export class Negociacao {
     get volume() {
         return this._quantidade * this._valor;
     }
-    criaDe(dataString, quantidadeString, valorString) {
+    /*Criando um metodo estatico, ele se torna um metodo da classe e não um metodo de uma instancia da classe,
+    podendo ser ecessado sem a classe estar instanciada e em qualquer parte do código*/
+    static criaDe(dataString, quantidadeString, valorString) {
         const exp = /-/g;
         const date = new Date(dataString.replace(exp, ","));
         const quantidade = parseInt(quantidadeString);

@@ -21,12 +21,13 @@ export class NegociacaoController {
     }
 
     public adiciona(): void {
-        const negociacaoTemp = new Negociacao(null, 0, 0);
-        const negociacao = negociacaoTemp.criaDe(
-            this.inputData,
-            this.inputQauntidade,
-            this.inputValor
+// A lógica de conversão foi toda levada para dentro da classe Negociacao, para deixar o código mais legivel
+        const negociacao = Negociacao.criaDe(
+            this.inputData.value,
+            this.inputQauntidade.value,
+            this.inputValor.value
         )
+
         if(!this.ehDiaUtil(negociacao.data)) {
             return this.mensagemView.update("Apenas operaçoes em dia útil são validas")
         }

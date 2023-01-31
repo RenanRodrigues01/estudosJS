@@ -34,7 +34,9 @@ passamos uma copia, assim a data original fica imutavel. Isso é chamdo de Progr
         return this._quantidade * this._valor
     }
 
-    public criaDe(dataString: string, quantidadeString: string, valorString: string): Negociacao {
+/*Criando um metodo estatico, ele se torna um metodo da classe e não um metodo de uma instancia da classe, 
+podendo ser ecessado sem a classe estar instanciada e em qualquer parte do código*/
+    public static criaDe(dataString: string, quantidadeString: string, valorString: string): Negociacao {
         const exp: RegExp = /-/g;
         const date = new Date(dataString.replace(exp, ","));
         const quantidade = parseInt(quantidadeString);
