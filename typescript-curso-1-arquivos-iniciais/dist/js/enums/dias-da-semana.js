@@ -1,5 +1,3 @@
-/*por padrão o TS enumera as enums começando do 0, mas mesmo que os valores que vc vá usar saõ uma sequencia
-é uma boa pratica sempre delarar os valores das enums, elas tambem podem ser strings */
 export var DiasDaSemana;
 (function (DiasDaSemana) {
     DiasDaSemana[DiasDaSemana["DOMINGO"] = 0] = "DOMINGO";
