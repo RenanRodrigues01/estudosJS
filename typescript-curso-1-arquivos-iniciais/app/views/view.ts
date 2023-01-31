@@ -4,9 +4,14 @@ export abstract class View<T> {
 pois sem a filha implementar o metodo template, view só iria exibir um erro em run time  */
 
     protected elemento: HTMLElement;
-
-    constructor(seletor: string) {
+    private escapar = false;
+//um paremetro opcional sempre deve ser pasado por ultimo 
+    constructor(seletor: string, escapar?: boolean) {
+//fazendo a reatribuição caso o parametro opicional seja passado
         this.elemento = document.querySelector(seletor);
+        if(escapar){
+            this.escapar = escapar
+        }
     }
 
 /* criando um metodo abstrato, classe não define como o metodo será implementado mas sim a filha,
@@ -16,7 +21,11 @@ sendo assim o metodo torna obrigatorio, e detectavel em tempo de desenvolvimento
 por padrão os metodos são publicos, então ao instanciar um dos filhos teremos acesso ao metodo*/
 
     public update(model : T) : void {
-        const template = this.template(model);
+        let template = this.template(model);
+//logica para prvenir um iject malicioso no nosso template, o regex identifica qualquer tag script e a remove
+        if(this.escapar){
+            template =template.replace(/<script>[\s\S]*?<script>/, '')
+        }
         this.elemento.innerHTML = template;
     }
 }
