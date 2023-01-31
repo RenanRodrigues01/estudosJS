@@ -12,11 +12,12 @@ export class NegociacaoController {
     private negociacoesView = new negocacoesView("#negociacoesView", true);
     private mensagemView = new MensagemView("#mensagemView");
     
-
+//desta forma suprimimos o compilador, afirmamndo que o elemento sera um topo HTMLInputElement
     constructor () {
-        this.inputData = document.querySelector("#data");
-        this.inputQauntidade = document.querySelector("#quantidade");
-        this.inputValor = document.querySelector("#valor");
+        this.inputData =<HTMLInputElement> document.querySelector("#data");
+        this.inputQauntidade =<HTMLInputElement> document.querySelector("#quantidade");
+        this.inputValor = document.querySelector("#valor") as HTMLInputElement;
+//apesar de existir as duas formas de declarar o tipo do elemento, neste caso o recpmmendado é <HTMLInputElement>
         this.negociacoesView.update(this.negociacoes);
     }
 
