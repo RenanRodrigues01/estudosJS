@@ -7,9 +7,16 @@ pois sem a filha implementar o metodo template, view só iria exibir um erro em 
     private escapar = false;
 //um paremetro opcional sempre deve ser pasado por ultimo 
     constructor(seletor: string, escapar?: boolean) {
-//fazendo a reatribuição caso o parametro opicional seja passado
-        this.elemento = document.querySelector(seletor);
+        //tratando os elementos null, e adicionando o erro caso seja null o valor
+        const elemento = document.querySelector(seletor)
+        if(elemento){
+            this.elemento = <HTMLInputElement> elemento
+        } else {
+            throw Error(`O seletor ${seletor} não existe no DOM. Verifique`)
+        }
+        
         if(escapar){
+            //fazendo a reatribuição caso o parametro opicional seja passado
             this.escapar = escapar
         }
     }
