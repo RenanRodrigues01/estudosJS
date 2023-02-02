@@ -29,7 +29,7 @@ sendo assim o metodo torna obrigatorio, e detectavel em tempo de desenvolvimento
 /* tranformando o metodo template em protected, para que só suas filhas tenham acesso ao metodo 
 por padrão os metodos são publicos, então ao instanciar um dos filhos teremos acesso ao metodo*/
 
-    @tempoDeExecucao()
+    @tempoDeExecucao(true)
     public update(model : T) : void {
         let template = this.template(model);
 //logica para prvenir um iject malicioso no nosso template, o regex identifica qualquer tag script e a remove
