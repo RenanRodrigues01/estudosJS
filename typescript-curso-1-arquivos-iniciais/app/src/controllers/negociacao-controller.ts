@@ -1,3 +1,4 @@
+import { inspect } from "../decorators/inspect.js";
 import { tempoDeExecucao } from "../decorators/tempo-de-execucao.js";
 import { DiasDaSemana } from "../enums/dias-da-semana.js";
 import { Negociacao } from "../models/negociacao.js";
@@ -22,7 +23,7 @@ export class NegociacaoController {
         this.negociacoesView.update(this.negociacoes);
     }
     
-    @tempoDeExecucao()
+    
     public adiciona(): void {
 // A lógica de conversão foi toda levada para dentro da classe Negociacao, para deixar o código mais legivel
         const negociacao = Negociacao.criaDe(
