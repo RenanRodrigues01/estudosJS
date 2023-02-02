@@ -11,12 +11,12 @@ export class NegociacaoController {
         this.inputData = document.querySelector("#data");
         this.inputQauntidade = document.querySelector("#quantidade");
         this.inputValor = document.querySelector("#valor");
-        this.negociacoesView.update(this.negociacoes);
+        this.negociacoesView.update({ model: this.negociacoes });
     }
     adiciona() {
         const negociacao = Negociacao.criaDe(this.inputData.value, this.inputQauntidade.value, this.inputValor.value);
         if (!this.ehDiaUtil(negociacao.data)) {
-            return this.mensagemView.update("Apenas operaçoes em dia útil são validas");
+            return this.mensagemView.update({ model: "Apenas operaçoes em dia útil são validas" });
         }
         this.negociacoes.adiciona(negociacao);
         this.limpaForm();
@@ -39,7 +39,7 @@ export class NegociacaoController {
         this.inputData.focus();
     }
     atualizaView() {
-        this.negociacoesView.update(this.negociacoes);
-        this.mensagemView.update("Negociação criada com sucesso");
+        this.negociacoesView.update({ model: this.negociacoes });
+        this.mensagemView.update({ model: "Negociação criada com sucesso" });
     }
 }

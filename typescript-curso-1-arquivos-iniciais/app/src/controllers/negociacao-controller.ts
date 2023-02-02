@@ -20,7 +20,7 @@ export class NegociacaoController {
         this.inputQauntidade =<HTMLInputElement> document.querySelector("#quantidade");
         this.inputValor = document.querySelector("#valor") as HTMLInputElement;
 //apesar de existir as duas formas de declarar o tipo do elemento, neste caso o recpmmendado é <HTMLInputElement>
-        this.negociacoesView.update(this.negociacoes);
+        this.negociacoesView.update({ model: this.negociacoes });
     }
     
     
@@ -33,7 +33,7 @@ export class NegociacaoController {
         )
 
         if(!this.ehDiaUtil(negociacao.data)) {
-            return this.mensagemView.update("Apenas operaçoes em dia útil são validas")
+            return this.mensagemView.update({ model: "Apenas operaçoes em dia útil são validas" })
         }
         this.negociacoes.adiciona(negociacao);
         this.limpaForm();
@@ -61,7 +61,7 @@ export class NegociacaoController {
     }
 
     private atualizaView(): void {
-        this.negociacoesView.update(this.negociacoes);
-        this.mensagemView.update("Negociação criada com sucesso");
+        this.negociacoesView.update({ model: this.negociacoes });
+        this.mensagemView.update({ model: "Negociação criada com sucesso" });
     }
 }

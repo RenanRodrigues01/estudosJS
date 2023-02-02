@@ -20,7 +20,7 @@ export class View {
             this.escapar = escapar;
         }
     }
-    update(model) {
+    update({ model }) {
         let template = this.template(model);
         if (this.escapar) {
             template = template.replace(/<script>[\s\S]*?<script>/, '');
@@ -29,6 +29,6 @@ export class View {
     }
 }
 __decorate([
-    inspect(),
+    inspect,
     tempoDeExecucao(true)
 ], View.prototype, "update", null);

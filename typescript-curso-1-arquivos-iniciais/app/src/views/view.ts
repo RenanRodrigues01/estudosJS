@@ -27,12 +27,12 @@ pois sem a filha implementar o metodo template, view só iria exibir um erro em 
 /* criando um metodo abstrato, classe não define como o metodo será implementado mas sim a filha,
 sendo assim o metodo torna obrigatorio, e detectavel em tempo de desenvolvimento */
     protected abstract template(model: T): string;
-/* tranformando o metodo template em protected, para que só suas filhas tenham acesso ao metodo 
+/* tranformando o metodo template em protected, para que só suas filhas tenham acesso ao metodo,
 por padrão os metodos são publicos, então ao instanciar um dos filhos teremos acesso ao metodo*/
 
-    @inspect()
+    @inspect // no caso de decorators que não recebem parametro, não precisamos da '()' pois estamos passando o proprio decorator
     @tempoDeExecucao(true)
-    public update(model : T) : void {
+    public update({ model }: { model: T; }) : void {
         let template = this.template(model);
 //logica para prvenir um iject malicioso no nosso template, o regex identifica qualquer tag script e a remove
         if(this.escapar){
