@@ -1,3 +1,4 @@
+import { escape } from "../decorators/escape.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { View } from "./view.js";
 
@@ -5,7 +6,7 @@ import { View } from "./view.js";
 export class negocacoesView extends View<Negociacoes> {
     
 /*como classe filha sobre escreve o pai, o metodo torna-se publico, sendo assim ao instanciar a filha o desenvolvedor tera acesso ao metodo*/
-
+    @escape
     protected template(model: Negociacoes) : string {
 
         return `

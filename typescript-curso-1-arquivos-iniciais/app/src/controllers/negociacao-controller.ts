@@ -11,7 +11,7 @@ export class NegociacaoController {
     private inputQauntidade: HTMLInputElement;
     private inputValor: HTMLInputElement;
     private negociacoes = new Negociacoes();
-    private negociacoesView = new negocacoesView("#negociacoesView", true);
+    private negociacoesView = new negocacoesView("#negociacoesView");
     private mensagemView = new MensagemView("#mensagemView");
     
 //desta forma suprimimos o compilador, afirmamndo que o elemento sera um topo HTMLInputElement
