@@ -2,11 +2,12 @@ import { domInject } from "../decorators/domInject.js";
 import { inspect } from "../decorators/inspect.js";
 import { tempoDeExecucao } from "../decorators/tempo-de-execucao.js";
 import { DiasDaSemana } from "../enums/dias-da-semana.js";
-import { negociacoesDeHoje } from "../interfaces/negociacoes-do-dia.js";
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
+import { negociacoesService } from "../services/negociacoes-service.js";
 import { MensagemView } from "../views/mensagemView.js";
 import { negocacoesView } from "../views/negociacoes-view.js";
+
 
 export class NegociacaoController {
     @domInject('#data')
@@ -18,6 +19,7 @@ export class NegociacaoController {
     private negociacoes = new Negociacoes();
     private negociacoesView = new negocacoesView("#negociacoesView");
     private mensagemView = new MensagemView("#mensagemView");
+    private negociacoesService = new negociacoesService()
     
 //desta forma suprimimos o compilador, afirmamndo que o elemento sera um topo HTMLInputElement
     constructor () {
@@ -46,17 +48,7 @@ export class NegociacaoController {
     }
 
     public importaDados(): void {
-        fetch("http://localhost:8080/dados")
-            .then(res => res.json())
-            .then((dados: negociacoesDeHoje[]) =>{
-                return dados.map( dado => {
-                    return new Negociacao( 
-                        new Date(), 
-                        dado.vezes, 
-                        dado.montante
-                    )
-                })
-            })
+        this.negociacoesService.obterNegociacoesDoDia()
             .then(negociacoesAPI => {
                 for(let negociacao of negociacoesAPI ) {
                     this.negociacoes.adiciona(negociacao)
