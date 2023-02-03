@@ -1,3 +1,4 @@
+import { domInject } from "../decorators/domInject.js";
 import { inspect } from "../decorators/inspect.js";
 import { tempoDeExecucao } from "../decorators/tempo-de-execucao.js";
 import { DiasDaSemana } from "../enums/dias-da-semana.js";
@@ -7,8 +8,11 @@ import { MensagemView } from "../views/mensagemView.js";
 import { negocacoesView } from "../views/negociacoes-view.js";
 
 export class NegociacaoController {
+    @domInject('#data')
     private inputData: HTMLInputElement;
+    @domInject('#quantidade')
     private inputQauntidade: HTMLInputElement;
+    @domInject('#valor')
     private inputValor: HTMLInputElement;
     private negociacoes = new Negociacoes();
     private negociacoesView = new negocacoesView("#negociacoesView");
@@ -16,10 +20,10 @@ export class NegociacaoController {
     
 //desta forma suprimimos o compilador, afirmamndo que o elemento sera um topo HTMLInputElement
     constructor () {
-        this.inputData =<HTMLInputElement> document.querySelector("#data");
+     /* this.inputData =<HTMLInputElement> document.querySelector("#data");
         this.inputQauntidade =<HTMLInputElement> document.querySelector("#quantidade");
         this.inputValor = document.querySelector("#valor") as HTMLInputElement;
-//apesar de existir as duas formas de declarar o tipo do elemento, neste caso o recpmmendado é <HTMLInputElement>
+        apesar de existir as duas formas de declarar o tipo do elemento, neste caso o recomendado é <HTMLInputElement> */
         this.negociacoesView.update({ model: this.negociacoes });
     }
     

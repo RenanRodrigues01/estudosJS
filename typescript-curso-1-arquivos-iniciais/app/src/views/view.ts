@@ -26,8 +26,8 @@ export abstract class View<T> {
     /* tranformando o metodo template em protected, para que só suas filhas tenham acesso ao metodo,
     por padrão os metodos são publicos, então ao instanciar um dos filhos teremos acesso ao metodo*/
 
-    @inspect // no caso de decorators que não recebem parametro, não precisamos da '()' pois estamos passando o proprio decorator
-    @tempoDeExecucao(true)
+    // @inspect no caso de decorators que não recebem parametro, não precisamos da '()' pois estamos passando o proprio decorator
+    //@tempoDeExecucao(true)
     public update({ model }: { model: T; }) : void {
         let template = this.template(model);
         this.elemento.innerHTML = template;
