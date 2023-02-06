@@ -5,6 +5,7 @@ import { DiasDaSemana } from "../enums/dias-da-semana.js";
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { negociacoesService } from "../services/negociacoes-service.js";
+import { imprimir } from "../utils/imprimir.js";
 import { MensagemView } from "../views/mensagemView.js";
 import { negocacoesView } from "../views/negociacoes-view.js";
 
@@ -42,6 +43,7 @@ export class NegociacaoController {
         if(!this.ehDiaUtil(negociacao.data)) {
             return this.mensagemView.update({ model: "Apenas operaçoes em dia útil são validas" })
         }
+        imprimir(this.negociacoes, negociacao)
         this.negociacoes.adiciona(negociacao);
         this.limpaForm();
         this.atualizaView()

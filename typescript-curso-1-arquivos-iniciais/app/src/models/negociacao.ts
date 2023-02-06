@@ -1,13 +1,15 @@
-
-export class Negociacao {
+import {imprimivel} from "../utils/imprimivel.js"
+export class Negociacao extends imprimivel{
 
     constructor(
 //porem temos uma falha no código, por que o metodo Date tem seus proprios metodosque por sua vez podem alterar o valor da data mesmo depois de já declarada
         //public readonly _data: Date;
         private _data: Date,
         public readonly _quantidade: number, 
-        public readonly _valor: number){
-    }
+        public readonly _valor: number
+        ){
+            super();
+        }
 
     /* o getter é feito para ter acesso acesso ao valor dentro da propriedade privada, para economizar um pouco de
     código podemos usar o readonly e deixar nossa declaração publica 
@@ -43,5 +45,13 @@ podendo ser ecessado sem a classe estar instanciada e em qualquer parte do códi
         const valor = parseFloat(valorString);
 
         return new Negociacao(date, quantidade, valor);
+    }
+
+    public imprimeTexto(): string {
+        return `
+            Data: ${this.data}
+            Quantidade: ${this._quantidade}
+            Valor: ${this._valor}
+        `
     }
 }

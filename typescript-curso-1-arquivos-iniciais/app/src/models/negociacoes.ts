@@ -1,7 +1,8 @@
+import { imprimivel } from "../utils/imprimivel.js";
 import { Negociacao } from "./negociacao.js";
 
 // sintaxe opicional para declaração de tipo
-export class Negociacoes {
+export class Negociacoes extends imprimivel {
     //private negociacoes:   = [];/ cria um tipo generico 
     private negociacoes: Negociacao[] = [];
 
@@ -13,5 +14,9 @@ export class Negociacoes {
 // listar(): ReadonlyArray<Negociacao>
     public listar(): readonly Negociacao[] {
         return this.negociacoes;
+    }
+
+    public imprimeTexto(): string {
+        return JSON.stringify(this.negociacoes, null, 2);
     }
 }
