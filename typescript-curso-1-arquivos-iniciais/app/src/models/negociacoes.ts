@@ -2,7 +2,7 @@ import { imprimivel } from "../utils/imprimivel.js";
 import { Negociacao } from "./negociacao.js";
 
 // sintaxe opicional para declaração de tipo
-export class Negociacoes extends imprimivel {
+export class Negociacoes implements imprimivel {
     //private negociacoes:   = [];/ cria um tipo generico 
     private negociacoes: Negociacao[] = [];
 

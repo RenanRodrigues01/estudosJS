@@ -1,4 +1,4 @@
 
-export abstract class imprimivel {
-    public abstract imprimeTexto() : string
+export interface imprimivel {
+    imprimeTexto() : string
 }

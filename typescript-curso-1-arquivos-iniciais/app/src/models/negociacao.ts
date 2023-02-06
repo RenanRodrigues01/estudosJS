@@ -1,5 +1,5 @@
 import {imprimivel} from "../utils/imprimivel.js"
-export class Negociacao extends imprimivel{
+export class Negociacao implements imprimivel {
 
     constructor(
 //porem temos uma falha no código, por que o metodo Date tem seus proprios metodosque por sua vez podem alterar o valor da data mesmo depois de já declarada
@@ -7,9 +7,7 @@ export class Negociacao extends imprimivel{
         private _data: Date,
         public readonly _quantidade: number, 
         public readonly _valor: number
-        ){
-            super();
-        }
+    ){}
 
     /* o getter é feito para ter acesso acesso ao valor dentro da propriedade privada, para economizar um pouco de
     código podemos usar o readonly e deixar nossa declaração publica 
