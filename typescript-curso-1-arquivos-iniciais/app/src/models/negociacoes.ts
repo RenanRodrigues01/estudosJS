@@ -1,9 +1,9 @@
-import { Comparavel } from "../interfaces/comparavel.js";
-import { imprimivel } from "../utils/imprimivel.js";
+
+import { Modelo } from "../interfaces/modelo.js";
 import { Negociacao } from "./negociacao.js";
 
 // sintaxe opicional para declaração de tipo
-export class Negociacoes implements imprimivel, Comparavel<Negociacoes> {
+export class Negociacoes implements Modelo<Negociacoes> {
     //private negociacoes:   = [];/ cria um tipo generico 
     private negociacoes: Negociacao[] = [];
 
