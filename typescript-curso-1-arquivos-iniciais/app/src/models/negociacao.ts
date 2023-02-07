@@ -1,5 +1,7 @@
+import { Comparavel } from "../interfaces/comparavel.js";
 import {imprimivel} from "../utils/imprimivel.js"
-export class Negociacao implements imprimivel {
+
+export class Negociacao implements imprimivel, Comparavel<Negociacao> {
 
     constructor(
 //porem temos uma falha no código, por que o metodo Date tem seus proprios metodosque por sua vez podem alterar o valor da data mesmo depois de já declarada

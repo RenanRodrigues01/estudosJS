@@ -1,8 +1,9 @@
+import { Comparavel } from "../interfaces/comparavel.js";
 import { imprimivel } from "../utils/imprimivel.js";
 import { Negociacao } from "./negociacao.js";
 
 // sintaxe opicional para declaração de tipo
-export class Negociacoes implements imprimivel {
+export class Negociacoes implements imprimivel, Comparavel<Negociacoes> {
     //private negociacoes:   = [];/ cria um tipo generico 
     private negociacoes: Negociacao[] = [];
 
@@ -18,5 +19,9 @@ export class Negociacoes implements imprimivel {
 
     public imprimeTexto(): string {
         return JSON.stringify(this.negociacoes, null, 2);
+    }
+
+    public ehIgual(negociacoes: Negociacoes): boolean {
+        return JSON.stringify(this.negociacoes) === JSON.stringify(negociacoes.listar())
     }
 }
