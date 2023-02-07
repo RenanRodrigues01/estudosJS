@@ -52,4 +52,10 @@ podendo ser ecessado sem a classe estar instanciada e em qualquer parte do códi
             Valor: ${this._valor}
         `
     }
+
+    public ehIgual(negociacao: Negociacao): boolean {
+        return this.data.getDay() === negociacao.data.getDay()
+            && this.data.getMonth() === negociacao.data.getMonth()
+            && this.data.getFullYear() === negociacao.data.getFullYear()
+    }
 }

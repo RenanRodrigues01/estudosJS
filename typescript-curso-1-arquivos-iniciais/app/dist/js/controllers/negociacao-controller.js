@@ -33,6 +33,11 @@ export class NegociacaoController {
     importaDados() {
         this.negociacoesService.obterNegociacoesDoDia()
             .then(negociacoesAPI => {
+            return negociacoesAPI.filter(negociacoesAPI => {
+                return !this.negociacoes.listar().some(Negociacao => Negociacao.ehIgual(negociacoesAPI));
+            });
+        })
+            .then(negociacoesAPI => {
             for (let negociacao of negociacoesAPI) {
                 this.negociacoes.adiciona(negociacao);
             }
